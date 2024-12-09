@@ -1,24 +1,30 @@
 'use client';
 
 import Image from 'next/image';
+import { FiPlus } from 'react-icons/fi';
 
 const HeroSection = () => {
   return (
     <section id="hero" className="flex flex-col items-center justify-center min-h-screen bg-white dark:bg-gray-900 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="flex justify-center space-x-8 mb-8">
-          <Image 
-            src="/assets/images/sih_logo.png"
-            alt="Smart India Hackathon Logo"
-            width={150}
-            height={150}
-          />
-          <Image
-            src="/assets/images/indian_railways_logo.png" 
-            alt="Indian Railways Logo"
-            width={150}
-            height={150}
-          />
+        <div className="flex items-center justify-center space-x-12 mb-12">
+          <div className="relative w-[200px] h-[200px]">
+              <Image
+                src="/assets/images/sih_logo.png" 
+                alt="Smart India Hackathon Logo"
+                fill
+                className="object-contain"
+              />
+          </div>
+          <FiPlus className="w-12 h-12 text-gray-500 dark:text-gray-400" />
+          <div className="relative w-[200px] h-[200px]">
+            <Image 
+              src="/assets/images/pravaah_logo.png"
+              alt="Pravaah Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4">
           Welcome to Pravaah
