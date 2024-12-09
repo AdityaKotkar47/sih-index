@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -9,12 +11,13 @@ const TeamMember = ({ name, role, github, linkedin, image }) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
   >
-    <div className="w-24 h-24 rounded-full overflow-hidden">
+    <div className="w-32 h-32 rounded-full overflow-hidden">
       <Image 
         src={`/assets/images/team/${image}`}
         alt={name}
-        width={96}
-        height={96}
+        width={128}
+        height={128}
+        className="object-cover"
       />  
     </div>
     <h4 className="mt-4 text-lg font-medium text-gray-900 dark:text-white">{name}</h4>
@@ -34,35 +37,35 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: 'Maitreyee Majumdaar',
-      role: 'Team Leader, App Development, Frontend',
+      role: 'Team Leader, App Development, Frontend Development',
       github: 'https://github.com/maitreyee',
       linkedin: 'https://www.linkedin.com/in/maitreyee',
       image: 'maitreyee.jpg',
     },
     {
       name: 'Kanishka Amrutkar',
-      role: 'App Development, Frontend',
+      role: 'App Development, Frontend Development',
       github: 'https://github.com/kanishka',
       linkedin: 'https://www.linkedin.com/in/kanishka',
       image: 'kanishka.jpg',
     },
     {
       name: 'Sujal Samadiya',
-      role: 'App Development, Backend, AR',
+      role: 'App Development, Backend Development',
       github: 'https://github.com/sujal',
       linkedin: 'https://www.linkedin.com/in/sujal',
       image: 'sujal.jpg',
     },
     {
       name: 'Shridhar Hande',
-      role: 'App Development, Full Stack, AR',
+      role: 'Full Stack, AR Development',
       github: 'https://github.com/shridhar',
       linkedin: 'https://www.linkedin.com/in/shridhar',
       image: 'shridhar.jpg',
     },
     {
       name: 'Krishna Tolani',
-      role: 'App Development, AR',
+      role: 'App Development, AR Development',
       github: 'https://github.com/krishna',
       linkedin: 'https://www.linkedin.com/in/krishna',
       image: 'krishna.jpg',
@@ -79,7 +82,7 @@ const TeamSection = () => {
   return (
     <div className="mt-12">
       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Our Team</h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
         {teamMembers.map((member) => (
           <TeamMember key={member.name} {...member} />
         ))}
