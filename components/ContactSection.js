@@ -10,7 +10,7 @@ const ContactSection = () => {
               Get in touch
             </h2>
             <p className="mt-4 text-lg text-gray-500 dark:text-gray-400">
-              We'd love to hear from you! If you have any questions, feedback, or collaboration opportunities, please fill out the form and we'll get back to you as soon as possible.
+              We&apos;d love to hear from you! If you have any questions, feedback, or collaboration opportunities, please fill out the form and we&apos;ll get back to you as soon as possible.
             </p>
           </div>
           <div className="mt-12 lg:mt-0">
