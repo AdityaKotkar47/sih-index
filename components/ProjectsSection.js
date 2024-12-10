@@ -88,13 +88,13 @@ function ProjectCard({ project }) {
       </a>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col h-[180px]">
         {/* Title */}
         <a 
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block mb-3"
+          className="inline-block mb-2"
         >
           <h3 className="text-xl font-bold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
             {project.name}
@@ -102,12 +102,12 @@ function ProjectCard({ project }) {
         </a>
 
         {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+        <p className="text-gray-600 dark:text-gray-300 mb-auto line-clamp-2">
           {project.description}
         </p>
 
         {/* Technologies */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mt-4">
           {project.technologies.map((tech) => (
             <span
               key={tech}
