@@ -91,11 +91,14 @@ function ProjectCard({ project }) {
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block mb-2"
+          className="inline-block mb-2 group/title"
         >
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
-            {project.name}
-          </h3>
+          <div className="relative inline-block">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover/title:text-indigo-600 dark:group-hover/title:text-indigo-400 transition-colors duration-200">
+              {project.name}
+            </h3>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 group-hover/title:w-full transition-all duration-300 ease-out" />
+          </div>
         </a>
 
         {/* Description */}
