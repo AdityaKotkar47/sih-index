@@ -8,7 +8,7 @@ import ThemeToggle from '../components/ThemeToggle';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-white dark:bg-gray-900">
+    <main className="relative min-h-screen bg-white dark:bg-background">
       <Navbar />
       <HeroSection />
       <ProjectsSection />
