@@ -76,15 +76,12 @@ function ProjectCard({ project }) {
           src={`/assets/images/projects/${project.name.toLowerCase().replace(/\s+/g, '-')}.png`}
           alt={`${project.name} preview`}
           fill
-          className={`object-cover transform transition-transform duration-500 group-hover:scale-105 ${
+          className={`object-cover ${
             isLoading ? 'opacity-0' : 'opacity-100'
           }`}
           onLoad={() => setIsLoading(false)}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </a>
 
       {/* Content */}
@@ -114,7 +111,10 @@ function ProjectCard({ project }) {
               className="px-3 py-1 text-xs font-medium rounded-full
                 bg-indigo-50 text-indigo-600 
                 dark:bg-indigo-900/30 dark:text-indigo-300
-                ring-1 ring-indigo-500/10 dark:ring-indigo-400/20"
+                ring-1 ring-indigo-500/10 dark:ring-indigo-400/20
+                hover:bg-indigo-100 dark:hover:bg-indigo-900/50
+                hover:ring-indigo-500/30 dark:hover:ring-indigo-400/40
+                transition-all duration-300"
             >
               {tech}
             </span>
