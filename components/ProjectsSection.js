@@ -1,5 +1,8 @@
 'use client';
 
+import Image from 'next/image';
+import { useState } from 'react';
+
 const projects = [
   {
     name: 'Kiosk',
@@ -26,10 +29,10 @@ const projects = [
     link: 'https://api.pravaah.xyz',
   },
   {
-      name: 'Woosmap Integration',
-      description: 'Woosmap integrated static map',
-      technologies: ['Woosmap API', 'React', 'Vite'],
-      link: 'https://woosmap.pravaah.xyz',
+    name: 'Woosmap Integration',
+    description: 'Woosmap integrated static map',
+    technologies: ['Woosmap API', 'React', 'Vite'],
+    link: 'https://woosmap.pravaah.xyz',
   },
   {
     name: 'Database',
@@ -51,38 +54,94 @@ const projects = [
   },
 ];
 
+function ProjectCard({ project }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  return (
+    <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+      {/* Image Container */}
+      <a 
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block relative w-full aspect-[16/9] overflow-hidden"
+      >
+        {/* Loading Skeleton */}
+        {isLoading && (
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse" />
+        )}
+
+        {/* Image */}
+        <Image
+          src={`/assets/images/projects/${project.name.toLowerCase().replace(/\s+/g, '-')}.png`}
+          alt={`${project.name} preview`}
+          fill
+          className={`object-cover transform transition-transform duration-500 group-hover:scale-105 ${
+            isLoading ? 'opacity-0' : 'opacity-100'
+          }`}
+          onLoad={() => setIsLoading(false)}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </a>
+
+      {/* Content */}
+      <div className="p-6">
+        {/* Title */}
+        <a 
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mb-3"
+        >
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+            {project.name}
+          </h3>
+        </a>
+
+        {/* Description */}
+        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+          {project.description}
+        </p>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 text-xs font-medium rounded-full
+                bg-indigo-50 text-indigo-600 
+                dark:bg-indigo-900/30 dark:text-indigo-300
+                ring-1 ring-indigo-500/10 dark:ring-indigo-400/20"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="bg-white dark:bg-gray-900 py-12">
+    <section id="projects" className="bg-gray-50 dark:bg-gray-900 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-center">
-          <h2 className="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">Projects</h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+        <div className="text-center mb-12">
+          <h2 className="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">
+            Projects
+          </h2>
+          <p className="mt-2 text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
             Pravaah Ecosystem
           </p>
         </div>
 
-        <div className="mt-10">
-          <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-            {projects.map((project) => (
-              <div key={project.name} className="relative">
-                <dt>
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-white hover:underline"
-                  >
-                    {project.name}
-                  </a>
-                </dt>
-                <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-gray-400">{project.description}</dd>
-                <dd className="mt-2 ml-16 text-sm text-gray-400 dark:text-gray-500">
-                  {project.technologies.join(', ')}
-                </dd>
-              </div>
-            ))}
-          </dl>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
         </div>
       </div>
     </section>
