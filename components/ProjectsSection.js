@@ -130,7 +130,7 @@ function ProjectCard({ project }) {
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="bg-gray-50 dark:bg-gray-900 py-16">
+    <section id="projects" className="bg-white dark:bg-background py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">
