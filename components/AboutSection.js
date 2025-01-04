@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-const TeamMember = ({ name, role, github, linkedin, image }) => (
+const TeamMember = ({ name, role, skills, github, linkedin, image }) => (
   <motion.div 
     className="flex flex-col items-center"
     initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,8 @@ const TeamMember = ({ name, role, github, linkedin, image }) => (
       />  
     </div>
     <h4 className="mt-4 text-lg font-medium text-gray-900 dark:text-white">{name}</h4>
-    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{role}</p>
+    <p className="mt-1 text-sm text-indigo-600 dark:text-indigo-400 font-medium">{role}</p>
+    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{skills}</p>
     <div className="mt-2 flex space-x-3">
       <a href={github} target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
         <FaGithub size={20} />
@@ -37,42 +38,48 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: 'Maitreyee Majumdaar',
-      role: 'Team Leader, App Development, Frontend Development',
+      role: 'Team Lead',
+      skills: 'App Development, Frontend Development',
       github: 'https://github.com/maitreyee',
       linkedin: 'https://www.linkedin.com/in/maitreyee',
       image: 'maitreyee.jpg',
     },
     {
       name: 'Kanishka Amrutkar',
-      role: 'App Development, Frontend Development',
+      role: 'Member',
+      skills: 'App Development, Frontend Development',
       github: 'https://github.com/kanishka',
       linkedin: 'https://www.linkedin.com/in/kanishka',
       image: 'kanishka.jpg',
     },
     {
       name: 'Sujal Samadiya',
-      role: 'App Development, Backend Development',
+      role: 'Member',
+      skills: 'App Development, Backend Development',
       github: 'https://github.com/sujal',
       linkedin: 'https://www.linkedin.com/in/sujal',
       image: 'sujal.jpg',
     },
     {
       name: 'Shridhar Hande',
-      role: 'Full Stack, AR Development',
+      role: 'Member',
+      skills: 'Full Stack, AR Development',
       github: 'https://github.com/shridhar',
       linkedin: 'https://www.linkedin.com/in/shridhar',
       image: 'shridhar.jpg',
     },
     {
       name: 'Krishna Tolani',
-      role: 'App Development, AR Development',
+      role: 'Member',
+      skills: 'App Development, AR Development',
       github: 'https://github.com/krishna',
       linkedin: 'https://www.linkedin.com/in/krishna',
       image: 'krishna.jpg',
     },
     {
       name: 'Aditya Kotkar',
-      role: 'Backend Development',
+      role: 'Member',
+      skills: 'Backend Development',
       github: 'https://github.com/aditya',
       linkedin: 'https://www.linkedin.com/in/aditya',
       image: 'aditya.jpg',
