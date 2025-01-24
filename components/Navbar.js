@@ -20,6 +20,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', id: 'hero' },
     { name: 'Projects', id: 'projects' },
+    { name: 'Timeline', id: 'timeline' },
     { name: 'About', id: 'about' },
   ];
 
