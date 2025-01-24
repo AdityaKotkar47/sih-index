@@ -5,6 +5,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
@@ -28,7 +29,7 @@ export const Timeline = ({ data }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full bg-white dark:bg-background font-sans md:px-10"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
@@ -36,7 +37,7 @@ export const Timeline = ({ data }) => {
           Our Journey
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          The evolution of Pravaah Index - A comprehensive water management solution.
+          The evolution of Pravaah - A comprehensive railway navigation solution.
         </p>
       </div>
 
@@ -59,6 +60,20 @@ export const Timeline = ({ data }) => {
               <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
                 {item.title}
               </h3>
+              {item.images && item.images.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  {item.images.map((image, imgIndex) => (
+                    <div key={imgIndex} className="relative w-full h-48 rounded-lg overflow-hidden">
+                      <Image
+                        src={image}
+                        alt={`${item.title} image ${imgIndex + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
               {item.content}
             </div>
           </div>

@@ -13,9 +13,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProjectsSection />
-      <section id="timeline" className="py-20">
-        <ProjectTimeline />
-      </section>
+      <ProjectTimeline />
       <AboutSection />
       <ThemeToggle />
     </main>
